@@ -96,21 +96,21 @@ const Portfolio = () => {
   return (
     <section
       id="portfolio"
-      className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-amber-50 to-white"
+      className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-red-50 to-white"
     >
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16 space-y-6">
-          <div className="inline-flex items-center space-x-2 bg-white rounded-full px-6 py-2 shadow-lg border border-amber-200">
+          <div className="inline-flex items-center space-x-2 bg-white rounded-full px-6 py-2 shadow-lg border border-red-200">
             <span className="text-2xl">✨</span>
-            <span className="text-amber-700 font-semibold">Our Portfolio</span>
+            <span className="text-red-700 font-semibold">Our Portfolio</span>
           </div>
 
-          <h2 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-amber-600 to-amber-800 bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-red-600 to-red-800 bg-clip-text text-transparent">
             Featured Works
           </h2>
 
-          <p className="text-xl text-amber-700 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-red-700 max-w-3xl mx-auto leading-relaxed">
             Explore our carefully curated selection of projects that showcase
             our passion for exceptional design and attention to detail.
           </p>
@@ -124,8 +124,8 @@ const Portfolio = () => {
               onClick={() => setActiveFilter(filter.id)}
               className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
                 activeFilter === filter.id
-                  ? "bg-gradient-to-r from-amber-500 to-amber-600 text-white shadow-lg"
-                  : "bg-white text-amber-700 border border-amber-200 hover:bg-amber-50 hover:border-amber-300"
+                  ? "bg-gradient-to-r from-red-500 to-red-600 text-white shadow-lg"
+                  : "bg-white text-red-700 border border-red-200 hover:bg-red-50 hover:border-red-300"
               }`}
             >
               {filter.label}
@@ -167,7 +167,7 @@ const Portfolio = () => {
                       : "opacity-0 translate-y-4"
                   }`}
                 >
-                  <button className="bg-white text-amber-700 px-6 py-3 rounded-full font-semibold flex items-center space-x-2 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200">
+                  <button className="bg-white text-red-700 px-6 py-3 rounded-full font-semibold flex items-center space-x-2 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200">
                     <span>View Project</span>
                     <ExternalLink size={16} />
                   </button>
@@ -175,7 +175,7 @@ const Portfolio = () => {
 
                 {/* Category Badge */}
                 <div className="absolute top-4 left-4">
-                  <span className="bg-white/90 backdrop-blur-sm text-amber-700 px-3 py-1 rounded-full text-sm font-medium">
+                  <span className="bg-white/90 backdrop-blur-sm text-red-700 px-3 py-1 rounded-full text-sm font-medium">
                     {project.type}
                   </span>
                 </div>
@@ -184,10 +184,10 @@ const Portfolio = () => {
               {/* Project Info */}
               <div className="p-6 space-y-4">
                 <div>
-                  <h3 className="text-xl font-bold text-amber-800 group-hover:text-amber-600 transition-colors">
+                  <h3 className="text-xl font-bold text-red-800 group-hover:text-red-600 transition-colors">
                     {project.title}
                   </h3>
-                  <p className="text-amber-600 text-sm mt-2 leading-relaxed">
+                  <p className="text-red-600 text-sm mt-2 leading-relaxed">
                     {project.description}
                   </p>
                 </div>
@@ -197,7 +197,7 @@ const Portfolio = () => {
                   {project.tags.map((tag, idx) => (
                     <span
                       key={idx}
-                      className="bg-amber-100 text-amber-700 px-3 py-1 rounded-full text-xs font-medium"
+                      className="bg-red-100 text-red-700 px-3 py-1 rounded-full text-xs font-medium"
                     >
                       {tag}
                     </span>
@@ -205,7 +205,7 @@ const Portfolio = () => {
                 </div>
 
                 {/* Project Link */}
-                <button className="w-full bg-gradient-to-r from-amber-500 to-amber-600 text-white py-2 px-4 rounded-lg font-medium hover:from-amber-600 hover:to-amber-700 transition-all duration-300 flex items-center justify-center space-x-2 group/btn">
+                <button className="w-full bg-gradient-to-r from-red-500 to-red-600 text-white py-2 px-4 rounded-lg font-medium hover:from-red-600 hover:to-red-700 transition-all duration-300 flex items-center justify-center space-x-2 group/btn">
                   <span>View Details</span>
                   <ArrowRight
                     size={16}
@@ -219,20 +219,20 @@ const Portfolio = () => {
 
         {/* Portfolio CTA */}
         <div className="text-center mt-16">
-          <div className="bg-white rounded-2xl p-8 shadow-lg border border-amber-200">
-            <h3 className="text-2xl md:text-3xl font-bold text-amber-800 mb-4">
+          <div className="bg-white rounded-2xl p-8 shadow-lg border border-red-200">
+            <h3 className="text-2xl md:text-3xl font-bold text-red-800 mb-4">
               Want to See More Work?
             </h3>
-            <p className="text-amber-600 mb-6 max-w-2xl mx-auto">
-              These are just a few highlights from our portfolio. We&lsquo;d
-              love to show you more examples and discuss how we can bring your
-              vision to life.
+            <p className="text-red-600 mb-6 max-w-2xl mx-auto">
+              These are just a few highlights from our portfolio. We&apos;d love
+              to show you more examples and discuss how we can bring your vision
+              to life.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-gradient-to-r from-amber-500 to-amber-600 text-white px-8 py-3 rounded-full font-semibold hover:from-amber-600 hover:to-amber-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+              <button className="bg-gradient-to-r from-red-500 to-red-600 text-white px-8 py-3 rounded-full font-semibold hover:from-red-600 hover:to-red-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
                 View Full Portfolio
               </button>
-              <button className="border-2 border-amber-300 text-amber-700 px-8 py-3 rounded-full font-semibold hover:bg-amber-50 transition-all duration-300">
+              <button className="border-2 border-red-300 text-red-700 px-8 py-3 rounded-full font-semibold hover:bg-red-50 transition-all duration-300">
                 Start Your Project
               </button>
             </div>

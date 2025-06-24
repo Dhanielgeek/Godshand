@@ -9,7 +9,7 @@ const Services = () => {
     {
       id: 1,
       title: "Logo Design",
-      icon: <Palette size={32} className="text-gray-500" />,
+      icon: <Palette size={32} className="text-yellow-500" />,
       emoji: "🎨",
       description:
         "Create a lasting first impression with unique, memorable logos that capture your brand's essence.",
@@ -18,12 +18,12 @@ const Services = () => {
         "Monogram, icon, primary & secondary logo variations",
         "Delivered in all standard formats (PNG, SVG, PDF)",
       ],
-      color: "from-gray-400 to-orange-500",
+      color: "from-yellow-400 to-red-500",
     },
     {
       id: 2,
       title: "Digital Branding",
-      icon: <Globe size={32} className="text-gray-500" />,
+      icon: <Globe size={32} className="text-yellow-500" />,
       emoji: "🌐",
       description:
         "Comprehensive solutions to elevate your digital presence across all platforms.",
@@ -34,12 +34,12 @@ const Services = () => {
         "Social Media Templates & Content Ideas",
         "Business Card Design & Print Materials",
       ],
-      color: "from-gray-500 to-yellow-500",
+      color: "from-red-500 to-yellow-500",
     },
     {
       id: 3,
       title: "Website Design",
-      icon: <Monitor size={32} className="text-gray-500" />,
+      icon: <Monitor size={32} className="text-yellow-500" />,
       emoji: "💻",
       description:
         "Functional, aesthetic websites that convert visitors into customers.",
@@ -49,7 +49,7 @@ const Services = () => {
         "Landing Page Design – focused campaigns & promotions",
         "Fully responsive, mobile-friendly, and optimized",
       ],
-      color: "from-yellow-400 to-gray-500",
+      color: "from-yellow-500 to-red-600",
     },
   ];
 
@@ -78,24 +78,31 @@ const Services = () => {
     <section
       id="services"
       ref={sectionRef}
-      className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-gray-50"
+      className="relative py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-red-50 via-yellow-50 via-white to-red-100"
     >
-      <div className="max-w-7xl mx-auto">
+      {/* Enhanced glowing background effects with red gradients */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-red-400/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-to-r from-red-500/20 to-yellow-500/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-red-300/10 via-yellow-300/10 to-red-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute top-3/4 left-1/6 w-72 h-72 bg-gradient-to-br from-red-400/15 to-red-600/15 rounded-full blur-2xl animate-pulse delay-500"></div>
+        <div className="absolute top-1/6 right-1/3 w-80 h-80 bg-gradient-to-tl from-yellow-400/15 to-red-400/15 rounded-full blur-2xl animate-pulse delay-2000"></div>
+      </div>
+
+      <div className="max-w-7xl mx-auto relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16 space-y-6">
-          <div className="inline-flex items-center space-x-2 bg-gray-100 rounded-full px-6 py-2">
+          <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-red-600 to-black rounded-full px-6 py-2 shadow-lg">
             <span className="text-2xl">🛠</span>
-            <span className="text-gray-700 font-semibold">
-              GodHand Services
-            </span>
+            <span className="text-white font-semibold">GodHand Services</span>
           </div>
 
-          <h2 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-gray-600 to-gray-800 bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-red-600 via-black to-yellow-500 bg-clip-text text-transparent">
             What We Create
           </h2>
 
           <p className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
-            &ldquo;Crafted with Precision. Powered by Purpose.&ldquo; - We
+            &ldquo;Crafted with Precision. Powered by Purpose.&rdquo; - We
             transform your ideas into powerful digital experiences that drive
             growth and inspire action.
           </p>
@@ -107,28 +114,25 @@ const Services = () => {
             <div
               key={service.id}
               data-card-id={service.id}
-              className={`group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-700 overflow-hidden border border-gray-100 ${
+              className={`group relative bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-700 overflow-hidden border border-gray-200 hover:border-red-400 ${
                 visibleCards.has(service.id)
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-8"
               }`}
               style={{ transitionDelay: `${index * 200}ms` }}
             >
-              {/* Card Background Gradient */}
+              {/* Card Background Accent Line */}
               <div
                 className={`absolute top-0 left-0 w-full h-1 bg-gradient-to-r ${service.color}`}
               ></div>
 
-              {/* Card Content */}
               <div className="p-8 space-y-6">
                 {/* Icon & Title */}
                 <div className="flex items-center space-x-4">
                   <div className="text-4xl">{service.emoji}</div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-gray-800 group-hover:text-gray-600 transition-colors">
-                      {service.title}
-                    </h3>
-                  </div>
+                  <h3 className="text-2xl font-bold text-black group-hover:text-red-600 transition-colors">
+                    {service.title}
+                  </h3>
                 </div>
 
                 {/* Description */}
@@ -136,11 +140,11 @@ const Services = () => {
                   {service.description}
                 </p>
 
-                {/* Features List */}
+                {/* Features */}
                 <div className="space-y-3">
                   {service.features.map((feature, idx) => (
                     <div key={idx} className="flex items-start space-x-3">
-                      <div className="flex-shrink-0 w-5 h-5 bg-gradient-to-r from-gray-400 to-gray-500 rounded-full flex items-center justify-center mt-0.5">
+                      <div className="flex-shrink-0 w-5 h-5 bg-gradient-to-r from-red-400 to-yellow-600 rounded-full flex items-center justify-center mt-0.5">
                         <Check size={12} className="text-white" />
                       </div>
                       <span className="text-gray-700 text-sm leading-relaxed">
@@ -151,7 +155,7 @@ const Services = () => {
                 </div>
 
                 {/* CTA Button */}
-                <button className="group/btn w-full bg-gradient-to-r from-gray-500 to-gray-600 text-white py-3 px-6 rounded-xl font-semibold hover:from-gray-600 hover:to-gray-700 transition-all duration-300 flex items-center justify-center space-x-2 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                <button className="group/btn w-full bg-gradient-to-r from-red-500 to-yellow-600 text-white py-3 px-6 rounded-xl font-semibold hover:from-red-600 hover:to-yellow-700 transition-all duration-300 flex items-center justify-center space-x-2 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
                   <span>Learn More</span>
                   <ArrowRight
                     size={16}
@@ -160,28 +164,28 @@ const Services = () => {
                 </button>
               </div>
 
-              {/* Hover Effect Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-br from-gray-500/5 to-gray-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+              {/* Hover Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-br from-red-300/5 via-yellow-300/5 to-red-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
             </div>
           ))}
         </div>
 
-        {/* Bottom CTA */}
+        {/* CTA Bottom */}
         <div className="text-center mt-16">
-          <div className="bg-gradient-to-r from-gray-500 to-gray-600 rounded-2xl p-8 text-white">
+          <div className="bg-gradient-to-r from-red-600 via-black to-red-700 rounded-2xl p-8 text-white shadow-2xl">
             <h3 className="text-2xl md:text-3xl font-bold mb-4">
               Ready to Transform Your Brand?
             </h3>
-            <p className="text-gray-100 mb-6 max-w-2xl mx-auto">
+            <p className="text-gray-200 mb-6 max-w-2xl mx-auto">
               Let&lsquo;s discuss your project and create something
               extraordinary together. Your success story starts with a single
               conversation.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-white text-gray-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-50 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+              <button className="bg-gradient-to-r from-white to-gray-100 text-black px-8 py-3 rounded-full font-semibold hover:from-gray-50 hover:to-white transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
                 Get Free Consultation
               </button>
-              <button className="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-gray-600 transition-all duration-300">
+              <button className="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-gradient-to-r hover:from-white/10 hover:to-red-100/10 hover:border-red-200 transition-all duration-300">
                 View Portfolio
               </button>
             </div>
