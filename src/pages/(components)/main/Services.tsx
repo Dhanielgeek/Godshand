@@ -78,15 +78,12 @@ const Services = () => {
     <section
       id="services"
       ref={sectionRef}
-      className="relative py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-red-50 via-yellow-50 via-white to-red-100"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-black via-red-950 to-black"
     >
-      {/* Enhanced glowing background effects with red gradients */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-red-400/20 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-to-r from-red-500/20 to-yellow-500/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-red-300/10 via-yellow-300/10 to-red-500/10 rounded-full blur-3xl"></div>
-        <div className="absolute top-3/4 left-1/6 w-72 h-72 bg-gradient-to-br from-red-400/15 to-red-600/15 rounded-full blur-2xl animate-pulse delay-500"></div>
-        <div className="absolute top-1/6 right-1/3 w-80 h-80 bg-gradient-to-tl from-yellow-400/15 to-red-400/15 rounded-full blur-2xl animate-pulse delay-2000"></div>
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-red-500/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-red-600/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-red-900/10 to-red-800/10 rounded-full blur-3xl"></div>
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
@@ -97,7 +94,7 @@ const Services = () => {
             <span className="text-white font-semibold">GodHand Services</span>
           </div>
 
-          <h2 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-red-600 via-black to-yellow-500 bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-6xl font-bold bg-white bg-clip-text text-transparent">
             What We Create
           </h2>
 
@@ -144,7 +141,7 @@ const Services = () => {
                 <div className="space-y-3">
                   {service.features.map((feature, idx) => (
                     <div key={idx} className="flex items-start space-x-3">
-                      <div className="flex-shrink-0 w-5 h-5 bg-gradient-to-r from-red-400 to-yellow-600 rounded-full flex items-center justify-center mt-0.5">
+                      <div className="flex-shrink-0 w-5 h-5 bg-gradient-to-r from-red-400 to-red-600 rounded-full flex items-center justify-center mt-0.5">
                         <Check size={12} className="text-white" />
                       </div>
                       <span className="text-gray-700 text-sm leading-relaxed">
