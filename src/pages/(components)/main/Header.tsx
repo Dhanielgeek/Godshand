@@ -1,4 +1,6 @@
+"use client";
 import React, { useState, useEffect } from "react";
+import Link from "next/link";
 import { Menu, X } from "lucide-react";
 
 const HandIcon = () => (
@@ -36,7 +38,13 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navItems = ["Home", "Services", "Portfolio", "About", "Contact"];
+  const navItems = [
+    { name: "Home", path: "/" },
+    { name: "Services", path: "#services" },
+    { name: "Portfolio", path: "#portfolio" },
+    { name: "About", path: "/about" },
+    { name: "Contact", path: "/contact" },
+  ];
 
   return (
     <header
@@ -65,20 +73,35 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
-            {navItems.map((item) => (
-              <a
-                key={item}
-                href={`#${item.toLowerCase()}`}
-                className={`relative transition-all duration-200 font-bold group ${
-                  scrollY > 50
-                    ? "text-white hover:text-red-400"
-                    : "text-white hover:text-red-600"
-                }`}
-              >
-                {item}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-red-500 to-red-700 transition-all duration-300 group-hover:w-full"></span>
-              </a>
-            ))}
+            {navItems.map((item) =>
+              item.path.startsWith("#") ? (
+                <a
+                  key={item.name}
+                  href={item.path}
+                  className={`relative transition-all duration-200 font-bold group ${
+                    scrollY > 50
+                      ? "text-white hover:text-red-400"
+                      : "text-white hover:text-red-600"
+                  }`}
+                >
+                  {item.name}
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-red-500 to-red-700 transition-all duration-300 group-hover:w-full"></span>
+                </a>
+              ) : (
+                <Link
+                  key={item.name}
+                  href={item.path}
+                  className={`relative transition-all duration-200 font-bold group ${
+                    scrollY > 50
+                      ? "text-white hover:text-red-400"
+                      : "text-white hover:text-red-600"
+                  }`}
+                >
+                  {item.name}
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-red-500 to-red-700 transition-all duration-300 group-hover:w-full"></span>
+                </Link>
+              )
+            )}
           </nav>
 
           {/* CTA Button */}
@@ -94,15 +117,9 @@ const Header = () => {
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? (
-              <X
-                size={24}
-                className={scrollY > 50 ? "text-white" : "text-white"}
-              />
+              <X size={24} className="text-white" />
             ) : (
-              <Menu
-                size={24}
-                className={scrollY > 50 ? "text-white" : "text-white"}
-              />
+              <Menu size={24} className="text-white" />
             )}
           </button>
         </div>
@@ -115,16 +132,27 @@ const Header = () => {
         } overflow-hidden bg-black/95 backdrop-blur-md border-t border-red-900`}
       >
         <div className="px-4 py-4 space-y-3">
-          {navItems.map((item) => (
-            <a
-              key={item}
-              href={`#${item.toLowerCase()}`}
-              className="block py-2 px-3 text-white hover:text-red-400 hover:bg-red-900/20 rounded-lg transition-all duration-200 font-medium"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              {item}
-            </a>
-          ))}
+          {navItems.map((item) =>
+            item.path.startsWith("#") ? (
+              <a
+                key={item.name}
+                href={item.path}
+                className="block py-2 px-3 text-white hover:text-red-400 hover:bg-red-900/20 rounded-lg transition-all duration-200 font-medium"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {item.name}
+              </a>
+            ) : (
+              <Link
+                key={item.name}
+                href={item.path}
+                className="block py-2 px-3 text-white hover:text-red-400 hover:bg-red-900/20 rounded-lg transition-all duration-200 font-medium"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {item.name}
+              </Link>
+            )
+          )}
           <div className="pt-3 border-t border-red-900">
             <button className="w-full bg-gradient-to-r from-red-500 to-red-700 text-white px-6 py-2.5 rounded-full font-medium hover:from-red-600 hover:to-red-800 transition-all duration-200 shadow-lg">
               Get Started
