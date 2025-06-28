@@ -1,7 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useState } from "react";
-import { ExternalLink, ArrowRight } from "lucide-react";
+import { ExternalLink, ArrowRight, Sparkles } from "lucide-react";
 
+// Updated Portfolio Component
 const Portfolio = () => {
   const [activeFilter, setActiveFilter] = useState("all");
   const [hoveredProject, setHoveredProject] = useState<number | null>(null);
@@ -96,21 +97,28 @@ const Portfolio = () => {
   return (
     <section
       id="portfolio"
-      className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-red-50 to-white"
+      className="relative min-h-screen py-20 px-4 sm:px-6 lg:px-8 overflow-hidden bg-gradient-to-br from-black via-red-950 to-black"
     >
-      <div className="max-w-7xl mx-auto">
+      {/* Background Elements - Same as Hero */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-red-500/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-red-600/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-red-900/10 to-red-800/10 rounded-full blur-3xl"></div>
+      </div>
+
+      <div className="max-w-7xl mx-auto relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16 space-y-6">
-          <div className="inline-flex items-center space-x-2 bg-white rounded-full px-6 py-2 shadow-lg border border-red-200">
-            <span className="text-2xl">✨</span>
-            <span className="text-red-700 font-semibold">Our Portfolio</span>
+          <div className="inline-flex items-center space-x-2 bg-red-900/20 backdrop-blur-sm border border-red-500 rounded-full px-6 py-3 shadow-lg">
+            <Sparkles size={16} className="text-red-400" />
+            <span className="text-red-300 font-medium">Our Portfolio</span>
           </div>
 
-          <h2 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-red-600 to-red-800 bg-clip-text text-transparent">
-            Featured Works
+          <h2 className="text-4xl md:text-6xl font-bold text-white">
+            Featured <span className="text-red-500">Works</span>
           </h2>
 
-          <p className="text-xl text-red-700 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
             Explore our carefully curated selection of projects that showcase
             our passion for exceptional design and attention to detail.
           </p>
@@ -125,7 +133,7 @@ const Portfolio = () => {
               className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
                 activeFilter === filter.id
                   ? "bg-gradient-to-r from-red-500 to-red-600 text-white shadow-lg"
-                  : "bg-white text-red-700 border border-red-200 hover:bg-red-50 hover:border-red-300"
+                  : "bg-black/30 backdrop-blur-sm text-red-300 border-2 border-red-500 hover:bg-red-500 hover:text-white"
               }`}
             >
               {filter.label}
@@ -138,7 +146,7 @@ const Portfolio = () => {
           {filteredProjects.map((project, index) => (
             <div
               key={project.id}
-              className="group relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2"
+              className="group relative bg-white/10 backdrop-blur-sm rounded-2xl overflow-hidden border border-red-500/20 hover:border-red-500/40 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2"
               onMouseEnter={() => setHoveredProject(project.id)}
               onMouseLeave={() => setHoveredProject(null)}
               style={{
@@ -175,7 +183,7 @@ const Portfolio = () => {
 
                 {/* Category Badge */}
                 <div className="absolute top-4 left-4">
-                  <span className="bg-white/90 backdrop-blur-sm text-red-700 px-3 py-1 rounded-full text-sm font-medium">
+                  <span className="bg-red-900/20 backdrop-blur-sm border border-red-500 text-red-300 px-3 py-1 rounded-full text-sm font-medium">
                     {project.type}
                   </span>
                 </div>
@@ -184,10 +192,10 @@ const Portfolio = () => {
               {/* Project Info */}
               <div className="p-6 space-y-4">
                 <div>
-                  <h3 className="text-xl font-bold text-red-800 group-hover:text-red-600 transition-colors">
+                  <h3 className="text-xl font-bold text-white group-hover:text-red-400 transition-colors">
                     {project.title}
                   </h3>
-                  <p className="text-red-600 text-sm mt-2 leading-relaxed">
+                  <p className="text-gray-300 text-sm mt-2 leading-relaxed">
                     {project.description}
                   </p>
                 </div>
@@ -197,7 +205,7 @@ const Portfolio = () => {
                   {project.tags.map((tag, idx) => (
                     <span
                       key={idx}
-                      className="bg-red-100 text-red-700 px-3 py-1 rounded-full text-xs font-medium"
+                      className="bg-red-900/20 text-red-300 px-3 py-1 rounded-full text-xs font-medium border border-red-500/30"
                     >
                       {tag}
                     </span>
@@ -219,11 +227,11 @@ const Portfolio = () => {
 
         {/* Portfolio CTA */}
         <div className="text-center mt-16">
-          <div className="bg-white rounded-2xl p-8 shadow-lg border border-red-200">
-            <h3 className="text-2xl md:text-3xl font-bold text-red-800 mb-4">
+          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-red-500/20 shadow-lg">
+            <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
               Want to See More Work?
             </h3>
-            <p className="text-red-600 mb-6 max-w-2xl mx-auto">
+            <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
               These are just a few highlights from our portfolio. We&apos;d love
               to show you more examples and discuss how we can bring your vision
               to life.
@@ -232,7 +240,7 @@ const Portfolio = () => {
               <button className="bg-gradient-to-r from-red-500 to-red-600 text-white px-8 py-3 rounded-full font-semibold hover:from-red-600 hover:to-red-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
                 View Full Portfolio
               </button>
-              <button className="border-2 border-red-300 text-red-700 px-8 py-3 rounded-full font-semibold hover:bg-red-50 transition-all duration-300">
+              <button className="bg-black/30 backdrop-blur-sm text-red-300 px-8 py-3 rounded-full font-semibold border-2 border-red-500 hover:bg-red-500 hover:text-white transition-all duration-300">
                 Start Your Project
               </button>
             </div>
