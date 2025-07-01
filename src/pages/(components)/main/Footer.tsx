@@ -132,7 +132,7 @@ const Footer = () => {
               </div>
               <div className="flex items-center space-x-3">
                 <span className="text-red-500">📱</span>
-                <span className="text-gray-400 text-sm">+1 (555) 123-4567</span>
+                <span className="text-gray-400 text-sm">+2347063775404</span>
               </div>
               <div className="flex items-center space-x-3">
                 <span className="text-red-500">📍</span>

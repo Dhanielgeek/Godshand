@@ -35,7 +35,7 @@ const ContactUs = () => {
     {
       icon: "📱",
       title: "Call Us",
-      details: "+1 (555) 123-4567",
+      details: "+2347063775404",
       description: "Mon-Fri 9AM-6PM EST",
     },
     {
