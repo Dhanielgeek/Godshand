@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { Sparkles } from "lucide-react";
 import { useEffect, useState } from "react";
 import Mainlayouts from "./layouts/Mainlayouts";
